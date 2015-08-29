@@ -1,6 +1,7 @@
 package com.example.emanuel.testrecyclerview;
 
 import android.content.Context;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,7 +18,6 @@ public class ViewHolder extends RecyclerView.ViewHolder
     private TextView mTextView;
     private RelativeLayout mRelativeLayout;
     private Context mContext;
-    private int number;
     private Model mModel;
 
     public ViewHolder(View itemView, Context context) {
@@ -26,19 +26,17 @@ public class ViewHolder extends RecyclerView.ViewHolder
 
         mTextView = (TextView) itemView.findViewById(R.id.textView);
         mRelativeLayout = (RelativeLayout) itemView.findViewById(R.id.relativeLayout);
-        //itemView.setOnClickListener(this);
-        //itemView.setOnTouchListener(this);
-        mRelativeLayout.setOnTouchListener(this);
     }
 
     @Override
     public void onClick(View view) {
+        int number = mModel.getNumber();
         Toast.makeText(mContext, "You pressed " + number, Toast.LENGTH_SHORT).show();
     }
 
     public void bindModel(Model model) {
+        mModel = model;
         mTextView.setText(model.getName());
-        number = model.getNumber();
     }
 
     @Override

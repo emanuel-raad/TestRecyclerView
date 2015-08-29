@@ -1,11 +1,16 @@
 package com.example.emanuel.testrecyclerview;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.drawable.RippleDrawable;
+import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import java.util.List;
 
@@ -27,8 +32,9 @@ public class DemoAdapter
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
+        final View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card, parent, false);
+
         return new ViewHolder(view, mContext);
     }
 
